@@ -1,37 +1,70 @@
-const prompts = [
-    "Write a story about a detective solving a mysterious case.",
-    "Describe a peaceful morning in a small town.",
-    "Create a dialogue between two old friends meeting after years.",
-    "Imagine a world where technology doesn't exist.",
-    "Write a poem about the beauty of nature.",
-    "Craft a story about an archaeologist uncovering an ancient civilization's secrets.",
-"Describe the chaotic first day of a rookie police officer on the job.",
-"Write a dialogue between two strangers stuck in an elevator during a power outage.",
-"Imagine a world where time travel is possible, and its consequences on society.",
-"Tell a tale of survival on a deserted island after a shipwreck.",
-"Paint a picture of a bustling market in a 19th-century European city.",
-"Create a conversation between an astronaut on a mission to Mars and mission control.",
-"Write a story set in a post-apocalyptic future where a group of survivors seeks hope.",
-"Describe the first day of school for a nervous 6-year-old entering kindergarten.",
-"Imagine a world where people have the ability to communicate with animals.",
-"Tell a story about a brilliant scientist on the brink of a groundbreaking discovery.",
-"Write a dialogue between a detective and a suspect in an intense interrogation room.",
-"Describe the serenity of a cabin in the woods during a gentle snowfall.",
-"Create a conversation between a time traveler from the future and a historian.",
-"Craft a story set in a medieval fantasy realm with dragons, knights, and magic.",
-"Imagine a society where books are forbidden, and a group of rebels tries to preserve knowledge.",
-"Tell a tale of an artist finding inspiration in a remote, picturesque village.",
-"Write a dialogue between a superhero and their arch-nemesis during an unexpected encounter.",
-"Describe the experience of a hiker reaching the summit of a towering mountain.",
-"Create a story about a musician composing their magnum opus during a period of intense inspiration."
-];
+const generatePrompt = () => {
+    const userPrompt = document.getElementById("userPrompt").value;
+    const correctedPrompt = correctGrammar(userPrompt);
+    const promptContainer = document.getElementById("prompt");
+    promptContainer.innerText = correctedPrompt;
+};
 
-const promptOutput = document.getElementById("prompt-output");
-const generateButton = document.getElementById("generate-prompt");
+const correctGrammar = (userPrompt) => {
+    // Capitalize the first letter
+    let correctedPrompt = userPrompt.charAt(0).toUpperCase() + userPrompt.slice(1);
 
-function generateRandomPrompt() {
-    const randomIndex = Math.floor(Math.random() * prompts.length);
-    promptOutput.textContent = prompts[randomIndex];
-}
+    // Correct 'a' and 'an'
+    correctedPrompt = correctedPrompt.replace(/\ba an?\b/gi, 'a/an');
 
-generateButton.addEventListener("click", generateRandomPrompt);
+    // Add more grammar corrections here
+    correctedPrompt = correctedPrompt.replace(/\bisnt\b/gi, "isn't");
+    correctedPrompt = correctedPrompt.replace(/\bcant\b/gi, "can't");
+    correctedPrompt = correctedPrompt.replace(/\bwont\b/gi, "won't");
+    correctedPrompt = correctedPrompt.replace(/\byoure\b/gi, "you're");
+    correctedPrompt = correctedPrompt.replace(/\btheyre\b/gi, "they're");
+    correctedPrompt = correctedPrompt.replace(/\btheres\b/gi, "there's");
+    correctedPrompt = correctedPrompt.replace(/\bim\b/gi, "I'm");
+    correctedPrompt = correctedPrompt.replace(/\bive\b/gi, "I've");
+    correctedPrompt = correctedPrompt.replace(/\bdont\b/gi, "don't");
+    correctedPrompt = correctedPrompt.replace(/\bdidnt\b/gi, "didn't");
+    correctedPrompt = correctedPrompt.replace(/\bdoesnt\b/gi, "doesn't");
+    correctedPrompt = correctedPrompt.replace(/\bhavent\b/gi, "haven't");
+    correctedPrompt = correctedPrompt.replace(/\bhasnt\b/gi, "hasn't");
+    correctedPrompt = correctedPrompt.replace(/\bwouldnt\b/gi, "wouldn't");
+    correctedPrompt = correctedPrompt.replace(/\bcouldnt\b/gi, "couldn't");
+    correctedPrompt = correctedPrompt.replace(/\bshouldnt\b/gi, "shouldn't");
+    correctedPrompt = correctedPrompt.replace(/\byoud\b/gi, "you'd");
+    correctedPrompt = correctedPrompt.replace(/\bdidnt\b/gi, "didn't");
+    correctedPrompt = correctedPrompt.replace(/\bweve\b/gi, "we've");
+    correctedPrompt = correctedPrompt.replace(/\btheyve\b/gi, "they've");
+    correctedPrompt = correctedPrompt.replace(/\bmightnt\b/gi, "mightn't");
+    correctedPrompt = correctedPrompt.replace(/\bneednt\b/gi, "needn't");
+    correctedPrompt = correctedPrompt.replace(/\barent\b/gi, "aren't");
+    correctedPrompt = correctedPrompt.replace(/\bwont\b/gi, "won't");
+    correctedPrompt = correctedPrompt.replace(/\byall\b/gi, "you all");
+    correctedPrompt = correctedPrompt.replace(/\bgonna\b/gi, "going to");
+      // Common misspellings and corrections
+      correctedPrompt = correctedPrompt.replace(/\brecieve\b/gi, "receive");
+      correctedPrompt = correctedPrompt.replace(/\bdefinately\b/gi, "definitely");
+      correctedPrompt = correctedPrompt.replace(/\boccured\b/gi, "occurred");
+      correctedPrompt = correctedPrompt.replace(/\bwierd\b/gi, "weird");
+      correctedPrompt = correctedPrompt.replace(/\btruely\b/gi, "truly");
+      correctedPrompt = correctedPrompt.replace(/\boccurence\b/gi, "occurrence");
+      correctedPrompt = correctedPrompt.replace(/\bcemetary\b/gi, "cemetery");
+      correctedPrompt = correctedPrompt.replace(/\bpavillion\b/gi, "pavilion");
+      correctedPrompt = correctedPrompt.replace(/\benviroment\b/gi, "environment");
+      correctedPrompt = correctedPrompt.replace(/\bembarass\b/gi, "embarrass");
+      correctedPrompt = correctedPrompt.replace(/\btruely\b/gi, "truly");
+      correctedPrompt = correctedPrompt.replace(/\bexistance\b/gi, "existence");
+      correctedPrompt = correctedPrompt.replace(/\bindependant\b/gi, "independent");
+      correctedPrompt = correctedPrompt.replace(/\bbegining\b/gi, "beginning");
+      correctedPrompt = correctedPrompt.replace(/\bnintey\b/gi, "ninety");
+      correctedPrompt = correctedPrompt.replace(/\bleed\b/gi, "led");
+      correctedPrompt = correctedPrompt.replace(/\bleeding\b/gi, "leading");
+      correctedPrompt = correctedPrompt.replace(/\bweild\b/gi, "wield");
+      correctedPrompt = correctedPrompt.replace(/\bwierd\b/gi, "weird");
+      correctedPrompt = correctedPrompt.replace(/\bfuther\b/gi, "further");
+      correctedPrompt = correctedPrompt.replace(/\blenght\b/gi, "length");
+  
+
+    return correctedPrompt;
+};
+
+const generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", generatePrompt);

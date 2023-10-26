@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prompt Generator </title>
+    <title>Prompt Generator</title>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Prompt Generator</h1>
-        <div id="prompt-output"></div>
-        <button id="generate-prompt">Generate Prompt</button>
+        <textarea id="userPrompt" placeholder="Enter your prompt"></textarea>
+        <button id="generate">Generate Prompt</button>
+        <div id="prompt">
+            <!-- Corrected prompt will be displayed here -->
+        </div>
     </div>
 
     <script src="./script/script.js"></script>
