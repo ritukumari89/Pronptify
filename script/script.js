@@ -61,7 +61,7 @@ const correctGrammar = (userPrompt) => {
       correctedPrompt = correctedPrompt.replace(/\bwierd\b/gi, "weird");
       correctedPrompt = correctedPrompt.replace(/\bfuther\b/gi, "further");
       correctedPrompt = correctedPrompt.replace(/\blenght\b/gi, "length");
-  
+787  
 
     return correctedPrompt;
 };
